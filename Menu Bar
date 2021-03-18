@@ -1,0 +1,103 @@
+import javax.swing.*;
+
+import java.awt.*;
+import java.awt.event.*;
+
+ @SuppressWarnings("serial")
+class MyMenu extends JFrame
+{
+    JMenuBar mbr;
+    JMenu file, font, edit;
+    JMenuItem op,sa,cl,cp,pt,f1,f2;
+    JMenuItem ca,ar,ab,an,co;
+    JMenuItem un,re,SA,cut,de;
+    JCheckBoxMenuItem pn;
+
+    MyMenu()
+    {
+        Container c = getContentPane();
+        c.setLayout(new BorderLayout());
+
+        //create a MenuBar
+        mbr = new JMenuBar();
+
+        //to add it to container
+        c.add(mbr,BorderLayout.NORTH);
+
+        //create Menus
+        file = new JMenu("File");
+        edit = new JMenu("Edit");
+
+        mbr.add(file);
+        mbr.add(edit);
+
+        //create menu items
+        op = new JMenuItem("Open");
+        sa = new JMenuItem("Save");
+        cl = new JMenuItem("Close");
+        cp = new JMenuItem("Copy");
+        pt = new JMenuItem("Paste");
+
+        //add them to menus
+        file.add(op);
+        file.add(sa);
+        file.add(cl);
+        file.add(cp);
+        file.add(pt);
+
+        pn = new JCheckBoxMenuItem("Print");
+        file.add(pn);
+
+        file.addSeparator();
+
+        //create the subMenu
+        font = new JMenu("Font");
+        file.add(font);
+
+        //create subMenu Items
+        ca = new JMenuItem("Calibri");
+        ar = new JMenuItem("Arial");
+        ab = new JMenuItem("Arial Black");
+        an = new JMenuItem("Arial Narrow");
+        co = new JMenuItem("Consolas");
+
+        //add them to menus
+        font.add(ca);
+        font.add(ar);
+        font.add(ab);
+        font.add(an);
+        font.add(co);
+        
+      //create edit menu Item
+      un = new JMenuItem("Undo");
+      re = new JMenuItem("Redo");
+      SA = new JMenuItem("Select All");
+      cut = new JMenuItem("Cut");
+      de = new JMenuItem("Delete");
+      
+      //add them to menus
+      edit.add(un);
+      edit.add(re);
+      edit.add(SA);
+      edit.add(cut);
+      edit.add(de);
+
+        addWindowListener(new WindowAdapter()
+        {
+            public void windowClosing(WindowEvent we)
+            {
+                System.exit(0);
+            }
+        });
+    }
+
+}
+public class MainClass {
+    public static void main(String args[])
+    {
+        MyMenu b= new MyMenu();
+        b.setSize(450,450);
+        b.setTitle("Menu Bar");
+        b.setVisible(true);
+    }
+}
